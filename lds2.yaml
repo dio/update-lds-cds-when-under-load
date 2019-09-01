@@ -24,6 +24,10 @@ resources:
         - name: envoy.ext_authz
           config:
             http_service:
+              authorization_request:
+                allowed_headers:
+                  patterns:
+                    - exact: "cookie"
               server_uri:
                 uri: "http://auth2"
                 cluster: auth2
