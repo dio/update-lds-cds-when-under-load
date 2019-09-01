@@ -1,0 +1,22 @@
+version: "3"
+services:
+  envoy:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: /usr/local/bin/envoy -c /etc/envoy.yaml --service-cluster envoy-proxy --component-log-level router:debug,config:debug
+    ports:
+    - 8000:8000
+    - 8001:8001
+    volumes:
+    - ./envoy.yaml:/etc/envoy.yaml
+
+  auth1:
+    image: nginx:1.16.1-alpine
+    expose:
+    - "80"
+
+  auth2:
+    image: nginx:1.17.3-alpine
+    expose:
+    - "80"
