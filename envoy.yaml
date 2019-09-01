@@ -1,4 +1,7 @@
 dynamic_resources:
+  cds_config:
+    path: /etc/xds/cds-active.yaml
+
   lds_config:
     path: /etc/xds/lds-active.yaml
 
@@ -31,33 +34,3 @@ static_resources:
                 port_value: 443
     tls_context:
       sni: www.google.com
-
-  - name: auth1
-    connect_timeout: 5s
-    type: STRICT_DNS
-    dns_lookup_family: V4_ONLY
-    lb_policy: ROUND_ROBIN
-    load_assignment:
-      cluster_name: auth1
-      endpoints:
-      - lb_endpoints:
-        - endpoint:
-            address:
-              socket_address:
-                address: auth1
-                port_value: 80
-
-  - name: auth2
-    connect_timeout: 5s
-    type: STRICT_DNS
-    dns_lookup_family: V4_ONLY
-    lb_policy: ROUND_ROBIN
-    load_assignment:
-      cluster_name: auth2
-      endpoints:
-      - lb_endpoints:
-        - endpoint:
-            address:
-              socket_address:
-                address: auth2
-                port_value: 80
