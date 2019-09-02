@@ -19,4 +19,10 @@ docker-push:
 toggle:
 	docker-compose exec envoy "/etc/toggle.sh"
 
+up-buggy:
+	make -C bug-8025 up
+
+up-fixed:
+	make -C fixed up
+
 .PHONY: up upd down toggle
