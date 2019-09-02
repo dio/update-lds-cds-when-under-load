@@ -10,9 +10,14 @@ $ # (this uses latest tagged envoy v1.11.1).
 ....
 $ # in separate tab, do siege or wrk against the envoy service, simulating curl localhost:8000
 $ # e.g. wrk -d 5m http://localhost:8000
-$ make toggle
+$ make toggle-buggy
 # it should crash!
+# bug-8025_envoy_1 exited with code 139
+```
 
+The "fixed" one:
+
+```
 $ make up-fixed
 ....
 $ # in separate tab, do siege or wrk against the envoy service, simulating curl localhost:8000

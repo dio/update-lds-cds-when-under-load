@@ -6,3 +6,6 @@ upd:
 
 down:
 	docker-compose down
+
+toggle:
+	docker-compose exec envoy "/etc/toggle.sh"

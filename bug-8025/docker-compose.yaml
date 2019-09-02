@@ -1,7 +1,9 @@
 version: "3"
 services:
   envoy:
-    image: envoyproxy/envoy:v1.11.1
+    build:
+      context: ../
+      dockerfile: Dockerfile.bug-8025
     command: /usr/local/bin/envoy -c /etc/envoy.yaml --service-cluster envoy-proxy --component-log-level router:debug,config:debug
     ports:
     - 8000:8000

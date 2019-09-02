@@ -25,4 +25,14 @@ up-buggy:
 up-fixed:
 	make -C fixed up
 
-.PHONY: up upd down toggle
+down-buggy:
+	make -C bug-8025 down
+
+down-fixed:
+	make -C fixed down
+
+toggle-buggy:
+	make -C bug-8025 toggle
+
+toggle-fixed:
+	make -C fixed toggle
