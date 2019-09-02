@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 current=$(cat /etc/xds/current)
 if [ "$current" == "lds1.yaml" ]; then
